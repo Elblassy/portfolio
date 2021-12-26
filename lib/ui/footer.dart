@@ -12,6 +12,8 @@ class Footer extends StatelessWidget {
       "You have an idea, I am here to turn your dream into real digital solution.";
   final String _description = con.description;
 
+  const Footer({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -39,7 +41,7 @@ class Footer extends StatelessWidget {
                             color: AppColors.yellow,
                           ),
                           const SizedBox(width: 7.5),
-                          Text(
+                          const Text(
                             'GET IN TOUCH',
                             style: TextStyle(
                               color: Colors.white,
@@ -121,7 +123,7 @@ class Footer extends StatelessWidget {
                             color: AppColors.yellow,
                           ),
                           const SizedBox(width: 7.5),
-                          Text(
+                          const Text(
                             'ABOUT ME',
                             style: TextStyle(
                               color: Colors.white,
@@ -155,7 +157,7 @@ class Footer extends StatelessWidget {
                             color: AppColors.yellow,
                           ),
                           const SizedBox(width: 7.5),
-                          Text(
+                          const Text(
                             'RECENT PROJECTS',
                             style: TextStyle(
                               color: Colors.white,
@@ -218,7 +220,7 @@ class Footer extends StatelessWidget {
                       color: AppColors.yellow,
                     ),
                     const SizedBox(width: 7.5),
-                    Text(
+                    const Text(
                       'GET IN TOUCH',
                       style: TextStyle(
                         color: Colors.white,
@@ -298,7 +300,7 @@ class Footer extends StatelessWidget {
                       color: AppColors.yellow,
                     ),
                     const SizedBox(width: 7.5),
-                    Text(
+                    const Text(
                       'ABOUT ME',
                       style: TextStyle(
                         color: Colors.white,
@@ -330,7 +332,7 @@ class Footer extends StatelessWidget {
                       color: AppColors.yellow,
                     ),
                     const SizedBox(width: 7.5),
-                    Text(
+                   const Text(
                       'RECENT PROJECTS',
                       style: TextStyle(
                         color: Colors.white,
@@ -364,7 +366,7 @@ class Footer extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              'Proudly powered by Elblasy ©${DateTime.now().year}',
+              'Proudly powered by Elblasy ©2021',
               style: TextStyle(
                 color: AppColors.greyLight!.withOpacity(.75),
               ),
@@ -403,28 +405,28 @@ class Footer extends StatelessWidget {
           onTap: () async {
             launch(con.github);
           },
-          child: AppIcon('icons/github.png'),
+          child:const AppIcon('icons/github.png'),
         ),
         const SizedBox(width: 20),
         InkWell(
           onTap: () {
             launch(con.linkedin);
           },
-          child: AppIcon('icons/linkedin.png'),
+          child:const AppIcon('icons/linkedin.png'),
         ),
         const SizedBox(width: 20),
         InkWell(
           onTap: () {
             launch(con.twitter);
           },
-          child: AppIcon('icons/twitter.png'),
+          child:const AppIcon('icons/twitter.png'),
         ),
         const SizedBox(width: 20),
         InkWell(
           onTap: () {
             launch(con.facebook);
           },
-          child: AppIcon('icons/facebook.png'),
+          child:const AppIcon('icons/facebook.png'),
         ),
       ];
 }

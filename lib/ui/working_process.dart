@@ -87,7 +87,7 @@ class WorkingProcess extends StatelessWidget {
               alignment: Alignment.topRight,
               child: Text(
                 index,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w700,
                 ),
@@ -109,7 +109,7 @@ class WorkingProcess extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               description,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black45,
               ),
               textAlign: TextAlign.center,

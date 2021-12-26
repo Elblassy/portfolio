@@ -1,9 +1,11 @@
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/ui/icon.dart';
 import 'package:mailto/mailto.dart';
 import 'package:portfolio/utils/constants.dart' as con;
+import 'package:url_launcher/url_launcher.dart';
 import 'responsive_widget.dart';
 import '../config/styles.dart';
 import '../config/colors.dart';
@@ -98,19 +100,19 @@ class _ContactUsState extends State<ContactUs> {
                   children: [
                     _buildContactInfo(
                       'icons/email.png',
-                      'Mail Us:',
+                      'Mail Me:',
                       con.mail,
                     ),
                     const SizedBox(height: 20),
                     _buildContactInfo(
                       'icons/call.png',
-                      'Call Us:',
+                      'Call Me:',
                       con.phone,
                     ),
                     const SizedBox(height: 20),
                     _buildContactInfo(
                       'icons/pin.png',
-                      'Visit Us:',
+                      'Visit Me:',
                       con.location,
                     ),
                   ],
@@ -181,7 +183,7 @@ class _ContactUsState extends State<ContactUs> {
                             ? null
                             : 'Please insert valid name!';
                       },
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: 'Your Name',
                         border: OutlineInputBorder(),
                       ),
@@ -195,7 +197,7 @@ class _ContactUsState extends State<ContactUs> {
                             ? null
                             : 'Please insert valid email!';
                       },
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: 'Your Email',
                         border: OutlineInputBorder(),
                       ),
@@ -212,19 +214,26 @@ class _ContactUsState extends State<ContactUs> {
                       ? null
                       : 'Please insert valid message!, at least 10 characters';
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Your Message',
                   border: OutlineInputBorder(),
                 ),
               ),
               const SizedBox(height: 20),
-              RaisedButton(
-                color: AppColors.yellow,
-                textColor: Colors.white,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: AppColors.yellow,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
                 onPressed: _sendMail,
-                child: Text('Send'),
+                child: const Text(
+                  'Send',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ],
           ),
@@ -237,22 +246,15 @@ class _ContactUsState extends State<ContactUs> {
     bool isValidForm = _formKey.currentState!.validate();
     if (!isValidForm) return;
 
+
     final mailto = Mailto(
       to: [con.mail],
       subject: _nameController.text.trim(),
       body: _contentController.text.trim(),
     );
 
-    final server = await HttpServer.bind(InternetAddress.loopbackIPv4, 3000);
-    String renderHtml(Mailto mailto) =>
-        '''<html><head><title>mailto example</title></head><body><a href="$mailto">Open mail client</a></body></html>''';
-    await for (HttpRequest request in server) {
-      request.response
-        ..statusCode = HttpStatus.ok
-        ..headers.contentType = ContentType.html
-        ..write(renderHtml(mailto));
-      await request.response.close();
-    }
+    await launch('$mailto');
+
   }
 
   @override

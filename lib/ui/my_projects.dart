@@ -7,12 +7,14 @@ import '../config/styles.dart';
 import '../config/colors.dart';
 
 class MyProjects extends StatelessWidget {
+  const MyProjects({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
       desktopScreen: Container(
         color: AppColors.greyLight,
-        padding: EdgeInsets.symmetric(vertical: 100),
+        padding: const EdgeInsets.symmetric(vertical: 100),
         child: Column(
           children: [
             Text('MY PROJECTS', style: AppStyles.title),
@@ -108,7 +110,7 @@ class MyProjects extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          child: Text('Visit'),
+                          child: const Text('Visit'),
                         ),
                       ],
                     ),
@@ -172,7 +174,7 @@ class MyProjects extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Text('Visit'),
+                child: const Text('Visit'),
               ),
               Divider(
                 color: AppColors.black.withOpacity(.1),

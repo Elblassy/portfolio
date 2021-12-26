@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
     return ResponsiveWidget(
       desktopScreen: Scaffold(
         body: Container(
-          decoration:const BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('images/background.jpg'),
               fit: BoxFit.cover,
@@ -61,14 +61,14 @@ class _HomeState extends State<Home> {
                 toolbarHeight: 100,
                 backgroundColor: Colors.transparent,
                 flexibleSpace: Container(
-                  decoration:const BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('images/cover.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
                   child: Container(
-                    decoration:const BoxDecoration(
+                    decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter,
@@ -86,7 +86,7 @@ class _HomeState extends State<Home> {
                     left: MediaQuery.of(context).size.width * .15,
                   ),
                 ),
-                bottom:const PreferredSize(
+                bottom: const PreferredSize(
                   preferredSize: Size.fromHeight(500),
                   child: Header(),
                 ),
@@ -96,7 +96,7 @@ class _HomeState extends State<Home> {
                       MaterialButton(
                         onPressed: _scrollToAbout,
                         highlightColor: Colors.white60,
-                        child: Text(
+                        child: const Text(
                           'About Me',
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
@@ -104,7 +104,7 @@ class _HomeState extends State<Home> {
                       ),
                       MaterialButton(
                         onPressed: _scrollToStatistics,
-                        child: Text(
+                        child: const Text(
                           'Experience',
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
@@ -112,7 +112,7 @@ class _HomeState extends State<Home> {
                       ),
                       MaterialButton(
                         onPressed: _scrollToWorkingProcess,
-                        child: Text(
+                        child: const Text(
                           'Process',
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
@@ -120,21 +120,26 @@ class _HomeState extends State<Home> {
                       ),
                       MaterialButton(
                         onPressed: _scrollToRecentProjects,
-                        child: Text(
+                        child: const Text(
                           'Portfolio',
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
                         ),
                       ),
                       const SizedBox(width: 20),
-                      RaisedButton(
+                      ElevatedButton(
                         onPressed: _scrollToContactUs,
-                        color: AppColors.yellow,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 40,
-                          vertical: 15,
+                        style: ElevatedButton.styleFrom(
+                          primary: AppColors.yellow,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 40,
+                            vertical: 15,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(4.0),
+                          ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Contact Me',
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
@@ -156,46 +161,51 @@ class _HomeState extends State<Home> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Divider(),
+                const Divider(),
                 ListTile(
                   onTap: _scrollToAbout,
-                  title: Text(
+                  title: const Text(
                     'About Me',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
                 ListTile(
                   onTap: _scrollToStatistics,
-                  title: Text(
+                  title: const Text(
                     'Experience',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
                 ListTile(
                   onTap: _scrollToWorkingProcess,
-                  title: Text(
+                  title: const Text(
                     'Process',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
                 ListTile(
                   onTap: _scrollToRecentProjects,
-                  title: Text(
+                  title: const Text(
                     'Portfolio',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
-                Divider(),
+                const Divider(),
                 const SizedBox(height: 20),
                 ListTile(
-                  title: RaisedButton(
+                  title: ElevatedButton(
                     onPressed: _scrollToContactUs,
-                    color: AppColors.yellow,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 40,
-                      vertical: 15,
+                    style: ElevatedButton.styleFrom(
+                      primary: AppColors.yellow,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 40,
+                        vertical: 15,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Contact Me',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
@@ -252,7 +262,7 @@ class _HomeState extends State<Home> {
           ),
         ),
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('images/background.jpg'),
               fit: BoxFit.cover,
@@ -284,7 +294,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter,
@@ -297,7 +307,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                bottom: PreferredSize(
+                bottom: const PreferredSize(
                   preferredSize: Size.fromHeight(350),
                   child: Header(),
                 ),
@@ -314,25 +324,25 @@ class _HomeState extends State<Home> {
   List<Widget> _slivers() => [
         SliverToBoxAdapter(
           key: _aboutGlobaleKey,
-          child: About(),
+          child: About(hireMe: _scrollToContactUs),
         ),
         SliverToBoxAdapter(
           key: _statisticsGlobaleKey,
-          child: Statistics(),
+          child: const Statistics(),
         ),
         SliverToBoxAdapter(
           key: _workingProcessGlobaleKye,
-          child:const WorkingProcess(),
+          child: const WorkingProcess(),
         ),
         SliverToBoxAdapter(
           key: _recentProjectsGlobaleKey,
-          child: MyProjects(),
+          child: const MyProjects(),
         ),
         SliverToBoxAdapter(
           key: con.contactUsGlobaleKey,
-          child:const ContactUs(),
+          child: const ContactUs(),
         ),
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: Footer(),
         ),
       ];
@@ -350,7 +360,7 @@ class _HomeState extends State<Home> {
                 ? _scrollToHeader
                 : null, // make sure user cannot click when button hidden
             mini: true,
-            child: AppIcon('icons/double-up-arrow.png', size: 20),
+            child: const AppIcon('icons/double-up-arrow.png', size: 20),
           ),
         );
       },

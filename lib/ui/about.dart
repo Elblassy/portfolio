@@ -10,8 +10,9 @@ import '../config/colors.dart';
 class About extends StatelessWidget {
   final String _avatar = 'images/me.png';
   final String _description = con.description;
+  final Function hireMe;
 
-  About({Key? key}) : super(key: key);
+  About({Key? key, required this.hireMe}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => ResponsiveWidget(
@@ -62,12 +63,14 @@ class About extends StatelessWidget {
                         Row(
                           children: [
                             RaisedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                hireMe();
+                              },
                               color: AppColors.yellow,
                               textColor: Colors.white,
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 30, vertical: 20),
-                              child: Text('HIRE ME NOW'),
+                              child: const Text('HIRE ME NOW'),
                             ),
                             const SizedBox(width: 20),
                             RaisedButton(
@@ -76,7 +79,7 @@ class About extends StatelessWidget {
                               textColor: Colors.white,
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 30, vertical: 20),
-                              child: Text('VIEW RESUME'),
+                              child: const Text('VIEW RESUME'),
                             ),
                           ],
                         ),

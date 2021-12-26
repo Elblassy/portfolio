@@ -49,13 +49,22 @@ class Header extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
-              RaisedButton(
-                color: AppColors.yellow,
-                textColor: Colors.white,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: AppColors.yellow,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4.0),
+                  ),
+                ),
                 onPressed: _downloadCV,
-                child: Text('Download CV'),
+                child: const Text(
+                  'Download CV',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
               ),
               const SizedBox(height: 100),
             ],
@@ -99,13 +108,22 @@ class Header extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 30),
-                RaisedButton(
-                  color: AppColors.yellow,
-                  textColor: Colors.white,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.yellow,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                  ),
                   onPressed: _downloadCV,
-                  child: Text('Download CV'),
+                  child: const Text(
+                    'Download CV',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 100),
               ],
